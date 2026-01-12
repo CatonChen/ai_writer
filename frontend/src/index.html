@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Writer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Writer 应用</h1>
+        <p>欢迎使用 AI Writer 桌面应用！</p>
+        <p>后端服务运行在: <span id="backend-status">未知</span></p>
+    </div>
+
+    <script>
+        // 检查与后端的连接
+        document.addEventListener('DOMContentLoaded', function() {
+            // 这里可以添加与后端通信的代码
+            document.getElementById('backend-status').textContent = '待连接';
+            
+            // 示例：使用 Tauri API（如果需要）
+            /*
+            import { invoke } from '@tauri-apps/api/tauri';
+            invoke('ping', { payload: 'test' }).then((response) => {
+                console.log(response);
+            });
+            */
+        });
+    </script>
+</body>
+</html>

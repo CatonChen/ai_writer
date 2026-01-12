@@ -1,0 +1,11 @@
+{
+  "name": "ai-writer-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "echo \"Development server not configured\"",
+    "build": "echo \"Build step not configured\""
+  },
+  "devDependencies": {}
+}
