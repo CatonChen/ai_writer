@@ -1,25 +1,27 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="AI Writer API", version="0.1.0")
+app = FastAPI()
 
-# CORS中间件配置
+# 添加CORS中间件，允许Tauri前端访问
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 在生产环境中应限制为特定域名
+    allow_origins=[
+        "http://localhost:1420", 
+        "tauri://localhost", 
+        "https://tauri.localhost",
+        "http://127.0.0.1:8000",  # 添加后端地址本身
+        "*"  # 开发期间临时允许所有来源，生产环境应限制
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 @app.get("/")
-async def root():
-    return {"message": "Welcome to AI Writer API"}
+def read_root():
+    return {"Hello": "World", "Service": "AI Writer Backend"}
 
 @app.get("/health")
-async def health_check():
-    return {"status": "healthy"}
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+def health_check():
+    return {"status": "healthy", "service": "AI Writer Backend"}
